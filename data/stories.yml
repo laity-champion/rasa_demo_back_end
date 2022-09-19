@@ -1,0 +1,290 @@
+#-*- coding : utf-8-*-
+# coding:unicode_escape
+version: "2.0"
+stories:
+
+#- story: Say greet
+#  steps:
+#  - intent: greet
+#  - action: utter_greet
+#  - action: utter_choose_QA
+#  - intent: numberone
+#  - action: utter_choose_QA1
+#  - intent: numbertwo
+#  - action: utter_choose_QA2
+#  - intent: numberthree
+#  - action: utter_choose_QA3
+
+#- story: everal rounds of interaction  #疾病信息多轮问答
+#  steps:
+#  - intent: disease_info          #在nlu里写入，我想了解某个疾病的信息，我想了解某个疾病的相关信息
+
+#  - intent: inform                # 这个inform是啥子，需要查看源代码
+#    entities:
+#    - disease: 感冒
+#  - action: utter_on_it            #执行相应的操作
+#  - action: utter_ask_whichone_attribute  #询问你想了解关于疾病的哪个属性呢，比如治愈时间、治疗周期等
+#  - intent: inform
+#    entities:
+#    - attribute: "desc"            #这里需要把attribute疾病属性作为实体，在nlu中写入相应的属性名称
+#  - action: utter_ask_num_people
+#- story: Several rounds of interaction
+#  steps:
+#  - intent: disease_info
+#  - action: utter_timeout
+#  - action: disease_form
+#  - slot_was_set:
+#      - disease: 感冒
+#  - active_loop: disease_form
+#  - active_loop: null
+#  - action: FindTheCorrespondingDisease
+#  - action: utter_over
+
+- story: query symptom
+  steps:
+  - intent: disease_symptom
+  - action: utter_timeout
+  - action: disease_form
+  - slot_was_set:
+      - disease: 感冒
+  - active_loop: disease_form
+  - active_loop: null
+  - action: FindTheCorrespondingDisease
+  - action: utter_over
+
+- story: query check
+  steps:
+  - intent: disease_check
+  - action: utter_timeout
+  - action: disease_form
+  - slot_was_set:
+      - disease: 感冒
+  - active_loop: disease_form
+  - active_loop: null
+  - action: FindTheCorrespondingDisease
+  - action: utter_over
+
+- story: query prevent
+  steps:
+  - intent: disease_prevent
+  - action: utter_timeout
+  - action: disease_form
+  - slot_was_set:
+      - disease: 感冒
+  - active_loop: disease_form
+  - active_loop: null
+  - action: FindTheCorrespondingDisease
+  - action: utter_over
+
+- story: query lasttime
+  steps:
+  - intent: disease_lasttime
+  - action: utter_timeout
+  - action: disease_form
+  - slot_was_set:
+      - disease: 感冒
+  - active_loop: disease_form
+  - active_loop: null
+  - action: FindTheCorrespondingDisease
+  - action: utter_over
+
+- story: query cureway
+  steps:
+  - intent: disease_cureway
+  - action: utter_timeout
+  - action: disease_form
+  - slot_was_set:
+      - disease: 感冒
+  - active_loop: disease_form
+  - active_loop: null
+  - action: FindTheCorrespondingDisease
+  - action: utter_over
+
+- story: query cureprob
+  steps:
+  - intent: disease_cureprob
+  - action: utter_timeout
+  - action: disease_form
+  - slot_was_set:
+      - disease: 感冒
+  - active_loop: disease_form
+  - active_loop: null
+  - action: FindTheCorrespondingDisease
+  - action: utter_over
+
+- story: query easyget
+  steps:
+  - intent: disease_easyget
+  - action: utter_timeout
+  - action: disease_form
+  - slot_was_set:
+      - disease: 感冒
+  - active_loop: disease_form
+  - active_loop: null
+  - action: FindTheCorrespondingDisease
+  - action: utter_over
+
+- story: query desc
+  steps:
+  - intent: disease_desc
+  - action: utter_timeout
+  - action: disease_form
+  - slot_was_set:
+      - disease: 感冒
+  - active_loop: disease_form
+  - active_loop: null
+  - action: FindTheCorrespondingDisease
+  - action: utter_over
+
+- story: query cause
+  steps:
+  - intent: disease_cause
+  - action: utter_timeout
+  - action: disease_form
+  - slot_was_set:
+      - disease: 感冒
+  - active_loop: disease_form
+  - active_loop: null
+  - action: FindTheCorrespondingDisease
+  - action: utter_over
+
+- story: query acompany
+  steps:
+  - intent: disease_acompany
+  - action: utter_timeout
+  - action: disease_form
+  - slot_was_set:
+      - disease: 感冒
+  - active_loop: disease_form
+  - active_loop: null
+  - action: FindTheCorrespondingDisease
+  - action: utter_over
+
+- story: query disease_department
+  steps:
+  - intent: disease_department
+  - action: utter_timeout
+  - action: disease_form
+  - slot_was_set:
+      - disease: 感冒
+  - active_loop: disease_form
+  - active_loop: null
+  - action: FindTheCorrespondingDisease
+  - action: utter_over
+
+- story: query disease_drug
+  steps:
+  - intent: disease_drug
+  - action: utter_timeout
+  - action: disease_form
+  - slot_was_set:
+      - disease: 感冒
+  - active_loop: disease_form
+  - active_loop: null
+  - action: FindTheCorrespondingDisease
+  - action: utter_over
+
+- story: query disease_food
+  steps:
+  - intent: disease_food
+  - action: utter_timeout
+  - action: disease_form
+  - slot_was_set:
+      - disease: 感冒
+  - active_loop: disease_form
+  - active_loop: null
+  - action: FindTheCorrespondingDisease
+  - action: utter_over
+
+#- story: query disease_do_food
+#  steps:
+#  - intent: disease_do_food
+#  - action: utter_timeout
+#  - action: disease_form
+#  - slot_was_set:
+#      - disease: 感冒
+#  - active_loop: disease_form
+#  - active_loop: null
+#  - action: FindTheCorrespondingDisease
+#  - action: utter_over
+
+- story: query disease
+  steps:
+  - intent: symptom_disease
+  - action: utter_timeout
+  - action: symptom_form
+  - slot_was_set:
+    - symptom: 胆心综合征
+  - active_loop: symptom_form
+  - active_loop: null
+  - action: FindTheCorrespondingSymptom
+  - action: utter_over
+
+- story: query check_disease
+  steps:
+  - intent: check_disease
+  - action: utter_timeout
+  - action: check_form
+  - slot_was_set:
+      - check: 检查
+  - active_loop: check_form
+  - active_loop: null
+  - action: FindTheCorrespondingCheck
+  - action: utter_over
+
+- story: query food_do_disease
+  steps:
+  - intent: food_do_disease
+  - action: utter_timeout
+  - action: food_form
+  - action: food_form
+  - slot_was_set:
+      - food: 鲫鱼
+  - active_loop: food_form
+  - active_loop: null
+  - action: FindTheCorrespondingFood
+  - action: utter_over
+
+- story: query food_not_disease
+  steps:
+  - intent: food_not_disease
+  - action: utter_timeout
+  - action: food_form
+  - action: food_form
+  - slot_was_set:
+      - food: 螃蟹
+  - active_loop: food_form
+  - active_loop: null
+  - action: FindTheCorrespondingFood
+  - action: utter_over
+
+- story: query drug_disease
+  steps:
+  - intent: drug_disease
+  - action: utter_timeout
+  - action: drug_form
+  - action: drug_form
+  - slot_was_set:
+      - food: 上清丸
+  - active_loop: drug_form
+  - active_loop: null
+  - action: FindTheCorrespondingDrug
+  - action: utter_over
+
+- story: query weather
+  steps:
+  - intent: query_weather
+  - action: utter_moreinformation
+  - action: weather_form
+  - slot_was_set:
+      - location: 北京
+  - slot_was_set:
+    - time: 明天
+  - active_loop: weather_form
+  - active_loop: null
+  - action: FindTheCorrespondingweather
+
+- story: query premise
+  steps:
+  - intent: query_premise
+  - action: utter_help

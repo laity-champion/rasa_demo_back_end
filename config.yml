@@ -1,0 +1,71 @@
+#-*- coding : utf-8-*-
+# coding:unicode_escape
+language: zh
+pipeline:
+
+  #语言模型
+  - name: "MitieNLP"
+    model: data/total_word_feature_extractor_zh.dat
+
+  #分词器使用结巴进行分词
+  - name: "JiebaTokenizer"
+    dictionary_path: data/jieba_userdict
+#  - name: "match_entity_extractor.MatchEntityExtractor"
+#    dictionary_path: "data/lookup_tables/"
+#    take_short: True  # 重复实体取短
+#  #  take_long: True  # 重复实体取长
+
+  # 特征器
+  - name: RegexFeaturizer
+#    number_additional_patterns: 10 已被弃用
+#  #仅当寻来你数据为英语时，才使用此特征化器
+  - name: CountVectorsFeaturizer
+    analyzer: "char_wb"
+    min_ngram: 1
+    max_ngram: 4
+
+  #意图分类器 intent classifier
+  - name: DIETClassifier #用于意图分类和实体提取的双意图实体转换器
+    epochs: 200
+    entity_recognition: False #实体识别
+    intent_classification: True #意图分类
+    constrain_similarities: true
+  - name: FallbackClassifier #需要特征化器和意图分类器才能工作，所以需要把词向量特征器打开
+    threshold: 0.5
+
+  #实体提取程序
+
+  - name: CRFEntityExtractor
+  - name: EntitySynonymMapper #同义词映射器，将同义词实体值映射到同一值
+    entity_recognition: True
+  - name: RegexEntityExtractor  #正则化实体提取
+    use_word_boundaries: False #中文环境要用
+    use_lookup_tables: True
+    use_regexes: True
+
+#  - name: "nlp_spacy"
+#  - name: "tokenizer_spacy"
+#  - name: "intent_entity_featurizer_regex"
+#  - name: "ner_crf"
+#    features: [
+#                ["low", "title", "upper"],
+#                ["bias", "low", "prefix5", "prefix2", "suffix5", "suffix3",
+#                 "suffix2", "upper", "title", "digit", "pattern"],
+#                ["low", "title", "upper"]
+#              ]
+
+
+policies:
+  - name: RulePolicy #基于规则的对话管理策略，每次提出相同类型的问题都以相同的方式作出回应
+    core_fallback_threshold: 0.3
+#    core_fallback_action_name: action_query
+    enable_fallback_prediction: true
+  - name: MemoizationPolicy
+    max_history: 5
+  - name: TEDPolicy #可以使模型泛化到看不见的对话路径，处理意外的用户行为
+    max_history: 10
+    epochs: 40
+    batch_size:
+    - 32
+    - 64
+#  - name: FormPolicy

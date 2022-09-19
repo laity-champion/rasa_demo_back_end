@@ -1,0 +1,108 @@
+2022-08-25 23:06:29,792 [INFO ]  Starting Rasa server on http://localhost:5005
+2022-08-25 23:06:31,015 [ERROR]  Could not load model due to Failed to find component class for 'match_entity_extractor.MatchEntityExtractor'. Unknown component name. Check your configured pipeline and make sure the mentioned component is not misspelled. If you are creating your own component, make sure it is either listed as part of the `component_classes` in `rasa.nlu.registry.py` or is a proper name of a class in a module..
+2022-08-25 23:06:31,018 [ERROR]  Experienced exception while trying to serve
+Traceback (most recent call last):
+  File "C:\Users\YD\AppData\Roaming\Python\Python36\site-packages\rasa\nlu\registry.py", line 141, in get_component_class
+    return class_from_module_path(component_name)
+  File "C:\Users\YD\AppData\Roaming\Python\Python36\site-packages\rasa\utils\common.py", line 174, in class_from_module_path
+    m = importlib.import_module(module_name)
+  File "c:\users\yd\appdata\local\programs\python\python36\lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "E:\amedicalbotbot\match_entity_extractor.py", line 8, in <module>
+    from rasa.nlu.extractors.extractor import EntityExtractor
+ModuleNotFoundError: No module named 'rasa.nlu.extractors.extractor'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\YD\AppData\Roaming\Python\Python36\site-packages\sanic\app.py", line 1096, in run
+    serve(**server_settings)
+  File "C:\Users\YD\AppData\Roaming\Python\Python36\site-packages\sanic\server.py", line 742, in serve
+    trigger_events(before_start, loop)
+  File "C:\Users\YD\AppData\Roaming\Python\Python36\site-packages\sanic\server.py", line 604, in trigger_events
+    loop.run_until_complete(result)
+  File "c:\users\yd\appdata\local\programs\python\python36\lib\asyncio\base_events.py", line 468, in run_until_complete
+    return future.result()
+  File "C:\Users\YD\AppData\Roaming\Python\Python36\site-packages\rasa\core\run.py", line 218, in load_agent_on_start
+    action_endpoint=endpoints.action,
+  File "C:\Users\YD\AppData\Roaming\Python\Python36\site-packages\rasa\core\agent.py", line 264, in load_agent
+    remote_storage=remote_storage,
+  File "C:\Users\YD\AppData\Roaming\Python\Python36\site-packages\rasa\core\agent.py", line 924, in load_local_model
+    remote_storage=remote_storage,
+  File "C:\Users\YD\AppData\Roaming\Python\Python36\site-packages\rasa\core\agent.py", line 373, in load
+    interpreter = NaturalLanguageInterpreter.create(nlu_model)
+  File "C:\Users\YD\AppData\Roaming\Python\Python36\site-packages\rasa\core\interpreter.py", line 53, in create
+    return RasaNLUInterpreter(model_directory=obj)
+  File "C:\Users\YD\AppData\Roaming\Python\Python36\site-packages\rasa\core\interpreter.py", line 250, in __init__
+    self._load_interpreter()
+  File "C:\Users\YD\AppData\Roaming\Python\Python36\site-packages\rasa\core\interpreter.py", line 270, in _load_interpreter
+    self.interpreter = Interpreter.load(self.model_directory)
+  File "C:\Users\YD\AppData\Roaming\Python\Python36\site-packages\rasa\nlu\model.py", line 301, in load
+    return Interpreter.create(model_metadata, component_builder, skip_validation)
+  File "C:\Users\YD\AppData\Roaming\Python\Python36\site-packages\rasa\nlu\model.py", line 323, in create
+    components.validate_requirements(model_metadata.component_classes)
+  File "C:\Users\YD\AppData\Roaming\Python\Python36\site-packages\rasa\nlu\components.py", line 36, in validate_requirements
+    component_class = registry.get_component_class(component_name)
+  File "C:\Users\YD\AppData\Roaming\Python\Python36\site-packages\rasa\nlu\registry.py", line 150, in get_component_class
+    "in a module.".format(component_name)
+Exception: Failed to find component class for 'match_entity_extractor.MatchEntityExtractor'. Unknown component name. Check your configured pipeline and make sure the mentioned component is not misspelled. If you are creating your own component, make sure it is either listed as part of the `component_classes` in `rasa.nlu.registry.py` or is a proper name of a class in a module.
+2022-08-25 23:07:37,788 [INFO ]  Starting Rasa server on http://localhost:5005
+2022-08-25 23:07:38,913 [ERROR]  Could not load model due to Failed to find component class for 'match_entity_extractor.MatchEntityExtractor'. Unknown component name. Check your configured pipeline and make sure the mentioned component is not misspelled. If you are creating your own component, make sure it is either listed as part of the `component_classes` in `rasa.nlu.registry.py` or is a proper name of a class in a module..
+2022-08-25 23:07:38,915 [ERROR]  Experienced exception while trying to serve
+Traceback (most recent call last):
+  File "C:\Users\YD\AppData\Roaming\Python\Python36\site-packages\rasa\nlu\registry.py", line 141, in get_component_class
+    return class_from_module_path(component_name)
+  File "C:\Users\YD\AppData\Roaming\Python\Python36\site-packages\rasa\utils\common.py", line 174, in class_from_module_path
+    m = importlib.import_module(module_name)
+  File "c:\users\yd\appdata\local\programs\python\python36\lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "E:\amedicalbotbot\match_entity_extractor.py", line 8, in <module>
+    from rasa.nlu.extractors.extractor import EntityExtractor
+ModuleNotFoundError: No module named 'rasa.nlu.extractors.extractor'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\YD\AppData\Roaming\Python\Python36\site-packages\sanic\app.py", line 1096, in run
+    serve(**server_settings)
+  File "C:\Users\YD\AppData\Roaming\Python\Python36\site-packages\sanic\server.py", line 742, in serve
+    trigger_events(before_start, loop)
+  File "C:\Users\YD\AppData\Roaming\Python\Python36\site-packages\sanic\server.py", line 604, in trigger_events
+    loop.run_until_complete(result)
+  File "c:\users\yd\appdata\local\programs\python\python36\lib\asyncio\base_events.py", line 468, in run_until_complete
+    return future.result()
+  File "C:\Users\YD\AppData\Roaming\Python\Python36\site-packages\rasa\core\run.py", line 218, in load_agent_on_start
+    action_endpoint=endpoints.action,
+  File "C:\Users\YD\AppData\Roaming\Python\Python36\site-packages\rasa\core\agent.py", line 264, in load_agent
+    remote_storage=remote_storage,
+  File "C:\Users\YD\AppData\Roaming\Python\Python36\site-packages\rasa\core\agent.py", line 924, in load_local_model
+    remote_storage=remote_storage,
+  File "C:\Users\YD\AppData\Roaming\Python\Python36\site-packages\rasa\core\agent.py", line 373, in load
+    interpreter = NaturalLanguageInterpreter.create(nlu_model)
+  File "C:\Users\YD\AppData\Roaming\Python\Python36\site-packages\rasa\core\interpreter.py", line 53, in create
+    return RasaNLUInterpreter(model_directory=obj)
+  File "C:\Users\YD\AppData\Roaming\Python\Python36\site-packages\rasa\core\interpreter.py", line 250, in __init__
+    self._load_interpreter()
+  File "C:\Users\YD\AppData\Roaming\Python\Python36\site-packages\rasa\core\interpreter.py", line 270, in _load_interpreter
+    self.interpreter = Interpreter.load(self.model_directory)
+  File "C:\Users\YD\AppData\Roaming\Python\Python36\site-packages\rasa\nlu\model.py", line 301, in load
+    return Interpreter.create(model_metadata, component_builder, skip_validation)
+  File "C:\Users\YD\AppData\Roaming\Python\Python36\site-packages\rasa\nlu\model.py", line 323, in create
+    components.validate_requirements(model_metadata.component_classes)
+  File "C:\Users\YD\AppData\Roaming\Python\Python36\site-packages\rasa\nlu\components.py", line 36, in validate_requirements
+    component_class = registry.get_component_class(component_name)
+  File "C:\Users\YD\AppData\Roaming\Python\Python36\site-packages\rasa\nlu\registry.py", line 150, in get_component_class
+    "in a module.".format(component_name)
+Exception: Failed to find component class for 'match_entity_extractor.MatchEntityExtractor'. Unknown component name. Check your configured pipeline and make sure the mentioned component is not misspelled. If you are creating your own component, make sure it is either listed as part of the `component_classes` in `rasa.nlu.registry.py` or is a proper name of a class in a module.
